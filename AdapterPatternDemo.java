@@ -38,8 +38,19 @@ public class AdapterPatternDemo {
 		      e3.readMessage("Vulcan.txt");
 		//Send a message to an unsupported language
 		      et.sendMessage("non-fed", "non-fed.txt");
-		   } catch (InvalidLanguageException ile)
-		   {System.out.println(ile.getMessage());}
+		   } catch (InvalidLanguageException ile){
+			   System.out.println(ile.getMessage());
+		   }
 		}
+	/*
+	File: Earth.txt2 does not exist
+	Earth Message Sent
+	This is earth to earth text.
+	Klingon Message Sent
+	Klingon .txet nognilK ot htrae si sihT
+	Vulcan Message Sent
+	Vulcan iVu nr tslexshTat. coit th ae
+	Language: non-fed not supported
+	 */
 	
 }

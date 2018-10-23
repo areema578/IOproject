@@ -1,5 +1,7 @@
 package projectIO;
 
+import java.io.FileNotFoundException;
+
 public class EarthText implements EarthCellPhone{
 
 	public EarthText() {
@@ -9,6 +11,11 @@ public class EarthText implements EarthCellPhone{
 	@Override
 	public void sendMessage(String languageType, String fileName) throws InvalidLanguageException {
 		// TODO Auto-generated method stub
+		try {
+			
+		} catch (FileNotFoundException exception) {
+			throw new InvalidLanguageException(languageType);
+		}
 		
 	}
 
