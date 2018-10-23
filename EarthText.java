@@ -6,19 +6,26 @@ import java.util.Scanner;
 
 public class EarthText implements EarthCellPhone{
 
+	private String languageType = "N/A";
+	
 	public EarthText() {
 		
+	}
+	
+	public String getLanguage() {
+		return languageType;
 	}
 	
 	@Override
 	public void sendMessage(String languageType, String fileName) throws InvalidLanguageException {
 		// TODO Auto-generated method stub
-		if(languageType != "Earth" || languageType != "Klingon" || languageType != "Vulcan") {
-			throw new InvalidLanguageException(languageType);
-		}
 		try {
+			if(!languageType.equals("Earth") && !languageType.equals("Klingon") && !languageType.equals("Vulcan")) {
+				throw new InvalidLanguageException(languageType);
+			}
 			File inFile = new File(fileName);
 			Scanner in = new Scanner(inFile);
+			this.languageType = languageType;
 			System.out.println(languageType + " Message Sent");
 			in.close();
 		} catch (FileNotFoundException exception) {

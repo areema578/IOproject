@@ -7,6 +7,7 @@ import java.util.Scanner;
 public class UniversalTranslator implements EarthCellPhone{
 	
 	private AlienCellPhone alienPhone;
+	private String languageType = "N/A";
 	
 	public UniversalTranslator(AlienCellPhone alienPhone) {
 		this.alienPhone = alienPhone;
@@ -15,12 +16,13 @@ public class UniversalTranslator implements EarthCellPhone{
 	@Override
 	public void sendMessage(String languageType, String fileName) throws InvalidLanguageException {
 		// TODO Auto-generated method stub
-		if(languageType != "Earth" || languageType != "Klingon" || languageType != "Vulcan") {
-			throw new InvalidLanguageException(languageType);
-		}
 		try {
+			if(!languageType.equals("Earth") && !languageType.equals("Klingon") && !languageType.equals("Vulcan")) {
+				throw new InvalidLanguageException(languageType);
+			}
 			File inFile = new File(fileName);
 			Scanner in = new Scanner(inFile);
+			this.languageType = languageType;
 			System.out.println(languageType + " Message Sent");
 			in.close();
 		} catch (FileNotFoundException exception) {
@@ -34,7 +36,7 @@ public class UniversalTranslator implements EarthCellPhone{
 		try {
 			File inFile = new File(fileName);
 			Scanner in = new Scanner(inFile);
-			System.out.print(""); //language type
+			System.out.print(languageType + " ");
 			while(in.hasNext()) {
 				System.out.println(in.nextLine());
 			}
