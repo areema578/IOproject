@@ -2,12 +2,12 @@ package projectIO;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class UniversalTranslator implements EarthCellPhone{
 	
 	private AlienCellPhone alienPhone;
-	private String languageType = "N/A";
 	
 	public UniversalTranslator(AlienCellPhone alienPhone) {
 		this.alienPhone = alienPhone;
@@ -22,7 +22,6 @@ public class UniversalTranslator implements EarthCellPhone{
 			}
 			File inFile = new File(fileName);
 			Scanner in = new Scanner(inFile);
-			this.languageType = languageType;
 			System.out.println(languageType + " Message Sent");
 			in.close();
 		} catch (FileNotFoundException exception) {
@@ -33,16 +32,7 @@ public class UniversalTranslator implements EarthCellPhone{
 	@Override
 	public void readMessage(String fileName) {
 		// TODO Auto-generated method stub
-		try {
-			File inFile = new File(fileName);
-			Scanner in = new Scanner(inFile);
-			System.out.print(languageType + " ");
-			while(in.hasNext()) {
-				System.out.println(in.nextLine());
-			}
-			in.close();
-		} catch(FileNotFoundException exception) {
-			System.out.println("File: " + fileName + " does not exist");
-		}
+		System.out.print(alienPhone + " ");
+		System.out.println(alienPhone.translateText(fileName));
 	}
 }

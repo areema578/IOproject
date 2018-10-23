@@ -1,7 +1,19 @@
 package projectIO;
 
-public class VulcanText implements AlienCellPhone{
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Scanner;
 
+public class VulcanText implements AlienCellPhone{
+	
+	public VulcanText() {
+		
+	}
+	
 	@Override
 	public void alienSendText(String fileName) {
 		// TODO Auto-generated method stub
@@ -17,7 +29,30 @@ public class VulcanText implements AlienCellPhone{
 	@Override
 	public String translateText(String fileName) {
 		// TODO Auto-generated method stub
-		return "Can't translate Vulcan text yet.";
+		try {
+			File inFile = new File(fileName);
+			Scanner in = new Scanner(inFile);
+			PrintWriter out = new PrintWriter("VulcanTranslated.txt");
+			String translatedText = "";
+			while(in.hasNext()) {
+				String str = in.nextLine();
+				List<String> letters = Arrays.asList(str.split(""));
+				Collections.shuffle(letters);
+				for(String letter : letters) {
+					translatedText += letter;
+				}
+				out.println(translatedText);
+			}
+			in.close();
+			out.close();
+			return translatedText;
+		} catch(FileNotFoundException exception) {
+			return "File: " + fileName + " does not exist";
+		}
+	}
+	
+	public String toString() {
+		return "Vulcan";
 	}
 
 }
