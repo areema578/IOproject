@@ -11,4 +11,8 @@ public class InvalidLanguageException extends Exception {
 	public String getMessage() {
 		return "Language: " + languageType + " not supported";
 	}
+	
+	public String toString() {
+		return "InvalidLanguageException";
+	}
 }

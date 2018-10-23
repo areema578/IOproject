@@ -2,7 +2,6 @@ package projectIO;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class UniversalTranslator implements EarthCellPhone{
@@ -34,5 +33,9 @@ public class UniversalTranslator implements EarthCellPhone{
 		// TODO Auto-generated method stub
 		System.out.print(alienPhone + " ");
 		System.out.println(alienPhone.translateText(fileName));
+	}
+	
+	public String toString() {
+		return "Universal Translator";
 	}
 }

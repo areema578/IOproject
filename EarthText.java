@@ -43,5 +43,9 @@ public class EarthText implements EarthCellPhone{
 			System.out.println("File: " + fileName + " does not exist");
 		}
 	}
+	
+	public String toString() {
+		return "Earth";
+	}
 
 }
