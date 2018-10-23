@@ -1,7 +1,5 @@
 package projectIO;
 
-import java.io.FileNotFoundException;
-
 public class InvalidLanguageException extends Exception {
 	
 	private String languageType = "N/A";
