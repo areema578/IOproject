@@ -36,10 +36,8 @@ public class VulcanText implements AlienCellPhone{
 			String translatedText = "";
 			while(in.hasNext()) {
 				String str = in.nextLine();
-				List<String> letters = Arrays.asList(str.split(""));
-				Collections.shuffle(letters);
-				for(String letter : letters) {
-					translatedText += letter;
+				for (int i = str.length()-1; i>= 0; i--) {
+					translatedText += str.charAt(i);
 				}
 				out.println(translatedText);
 			}
